@@ -8,6 +8,12 @@
  */
 #include <ListNode>
 
+/**
+ * Follow up: O(n) time and O(1) space
+ * Using stack won't achieve O(1) space
+ * Reversing the next half, and compare
+ */
+
 class Solution{
     public:
     bool isPalindrome(ListNode* head){
@@ -19,7 +25,7 @@ class Solution{
         }
         ListNode *last = slow->next, *pre = head;
         while(last->next){
-            ListNode * temp = last->next;
+            ListNode *temp = last->next;
             last->next = temp->next;
             temp->next = slow->next;
             slow->next = temp;
