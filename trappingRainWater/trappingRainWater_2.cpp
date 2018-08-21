@@ -11,7 +11,7 @@ public:
             while(r > l && height[r] <= minHeight){
                 water += minHeight - height[r--];
             }
-            minHeight = min(height[l], height[r])'
+            minHeight = min(height[l], height[r]);
         }
         return water;
     }
