@@ -7,7 +7,6 @@ using namespace std;
 class Solution {
 public:
     vector<int> findOrder(int numCourses, vector<pair<int, int>>& prerequisites){
-        if(prerequisites.empty()) return;
         vector<int> res;
         vector<vector<int>> graph(numCourses, vector<int>(0));
         vector<int> inDegree(numCourses, 0);
