@@ -20,7 +20,7 @@ public:
             }
         }
         
-        for(int i = 0; i < N; ++i){
+        for(int i = 0; i <= N; ++i){
             k -= cnt[i];
             if(k <= 0) return i;
         }
