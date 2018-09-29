@@ -1,5 +1,6 @@
 /*
 Using brute force, time complexity: sqrt(x)
+40 ms, if use (s > x /s) and int, runtime is 162ms. Division in c++ is more expensive than multiplication
 */
 
 using namespace std;
