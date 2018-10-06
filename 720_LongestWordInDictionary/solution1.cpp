@@ -1,6 +1,7 @@
 // Using hash map - Brute force + Pruning
 // Time complexity O(W^2)
 // Space complexity: O(n + sum(W))
+// 24ms
 
 #include <string>
 #include <unordered_set>
