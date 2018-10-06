@@ -2,8 +2,8 @@
 * Hash map - brute force + sorting
 * Time complexity - O(W^2 + nlogn)
 * Space complexity - O(n + W)
-* 36 ms
-*
+* 28 ms
+*/
 
 #include <string>
 #include <unordered_set>
