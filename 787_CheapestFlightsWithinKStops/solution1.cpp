@@ -1,5 +1,5 @@
 /**
-* Using DFS; Time complexity O(n^k+1); Space complexity O(n^k+1)
+* Using DFS; Time complexity O(n^k+1); Space complexity O(k+1)
 */
 
 #include <vector>
