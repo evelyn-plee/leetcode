@@ -1,3 +1,7 @@
+/**
+* Time complexity: O(n)
+*/
+
 class Codec{
 public:
     // Encodes a tree to a single string
