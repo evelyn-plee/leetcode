@@ -1,7 +1,7 @@
 /**
 * Use BellmanFord
 * Time complexity: O(kn^2)
-* Space complexity: O(n)
+* Space complexity: O(kn)
 **/
 
 class Solution {
