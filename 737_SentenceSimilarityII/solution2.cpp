@@ -1,3 +1,5 @@
+/** Union-find set Time complexity: O(|pairs| + |words|), Space complexity: O(|pairs|) **/
+
 class UnionFindSet{
 public:
     UnionFindSet(int n){
