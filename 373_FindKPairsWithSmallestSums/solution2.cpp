@@ -18,7 +18,7 @@ public:
         int n = nums2.size();
         for(int i = 0; i < min(m, k); ++i){
             for(int j = 0; j < min(n, k); ++j){
-                mp.insert({nums1[i] + nums[2], {nums1[i], nums2[j]}});
+                mp.insert({nums1[i] + nums2[j], {nums1[i], nums2[j]}});
             }
         }
         for(auto it = mp.begin(); it != mp.end(); ++it){
