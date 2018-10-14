@@ -11,9 +11,9 @@ public:
             int j = 0;
             for(int j = 0; j < n; ++j){
                 string cur = s.substr(i+j*m, m);
-                if(m1.find(t) == m1.end()) break;
-                ++m2[t];
-                if(m2[t] > m1[t]) break;
+                if(m1.find(cur) == m1.end()) break;
+                ++m2[cur];
+                if(m2[cur] > m1[cur]) break;
             }
             if(j == n) res.push_back(i);
         }
