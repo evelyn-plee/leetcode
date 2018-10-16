@@ -1,4 +1,4 @@
-// Brute Force: Time complexity, O(n), Space complexity, O(1)
+// Brute Force: Time complexity, O(mn), Space complexity, O(1)
 
 class Solution {
 public:
