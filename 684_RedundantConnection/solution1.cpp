@@ -2,36 +2,44 @@
 * Use disjoint set union with path compression
 */
 
-
-class Solution {
+class UnionFindSet(){
 public:
-    vector<int> findRedundantConnection(vector<vector<int>>& edges) {
-        vector<int> parents(edges.size() + 1, 0);
-        //because integer is between 1 and N, make use of the index
-        vector<int> sizes(edges.size() + 1, 1);
-        
-        for(const auto& edge : edges){
-            int u = edge[0];
-            int v = edge[1];
-            if(!parents[u]) parents[u] = u;
-            if(!parents[v]) parents[v] = v;
-            int pu = find(u, parents);
-            int pv = find(v, parents);
-            
-            if(pu == pv) return edge;
-            if(sizes[pv] > sizes[pu])
-                swap(pu, pv);
-            parents[pv] = pu;
-            sizes[pu] += sizes[pv];
-        }
-        return {};
+    UnionFindSet(int n){
+        parents_ = vector<int>(n+1, 0);
+        ranks_ = vector<int>(n+1, 0);
     }
     
-    int find(int node, vector<int> parents){
-        while(parents[node] != node){
-            parents[node] = parents[parents[node]];
-            node = parents[node];
+    bool Union(int u, int v){
+        int pu = Find(u);
+        int pv = Find(v);
+        if(pu == pv) return false;
+        if(ranks_[pv] > ranks_[pu]) parents_[pv] = pu;
+        else if(ranks_[pu] > ranks_[pv]) parents_[pu] = pv;
+        else{
+            parents_[pv] = pu;
+            ranks_[pv] += 1;
         }
-        return node;
+        return true;
+    }
+    
+    int Find(int u){
+        if(u != parents_[u]){
+            parents_[u] = Find(parents_[u]);
+        }
+        return parents_[u];
+    }
+private:
+    vector<int> parents_;
+    vector<int> ranks_;
+};
+
+class Solution{
+public:
+    vector<int> findRedundantConnection(vector<vector<int>>& edges){
+        UnionFindSet s(edges.size());
+        for(const auto& edge: edges){
+            if(!s.Union(edge[0], edge[1])) return edge;
+        }
+        return {};
     }
 };
