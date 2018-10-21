@@ -1,3 +1,5 @@
+// O(n), O(n)
+
 class Solution{
 public:
     int nextGreaterElement(int n){
