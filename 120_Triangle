@@ -1,0 +1,15 @@
+// O(mn), O(n)
+
+class Solution {
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {
+        int m = triangle.size();
+        vector<int> minLength(triangle.back());
+        for(int i = m - 2; i >= 0; --i){
+            for(int j = 0; j <= i; ++j){
+                minLength[j] = min(minLength[j], minLength[j+1]) + triangle[i][j];
+            }
+        }
+        return minLength[0];
+    }
+};
