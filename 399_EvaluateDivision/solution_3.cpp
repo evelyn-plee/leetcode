@@ -2,6 +2,9 @@
 using dfs
 */
 
+// Time Complexity: O(e + q * e), e for number of equations and q for number of queries
+// Space Complexity: O(e)
+
 #include<unordered_map>
 #include<vector>
 #include<queue>
