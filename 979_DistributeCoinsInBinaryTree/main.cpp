@@ -33,3 +33,24 @@ public:
         return root->val + l + r - 1;
     }
 };
+
+
+/**
+ * Cal's implementation
+ */
+class Solution {
+public:
+    int rec(TreeNode * root, int &ans) {
+        if (root == NULL) return 0;
+        root->val += rec(root->left, ans);
+        root->val += rec(root->right, ans);
+        ans += abs(1-root->val);
+        return root->val-1;
+    }
+    
+    int distributeCoins(TreeNode* root) {
+        int ans = 0;
+        rec(root, ans);
+        return ans;
+    }
+};
