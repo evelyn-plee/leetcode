@@ -19,7 +19,8 @@ public:
     }
 }
 
-// TODO: Find out the time complexity, SC: O(n)
+// TC: O(n), each temperature can be operated at most twice: pushed back to the stack or poped out from the stacka
+// SC: O(n) 
 
 class Solution {
 public:
