@@ -9,7 +9,7 @@
  */
 
 // Backtracking
-class Solution{
+class Solution1{
 public:
     vector<string> binaryTreePaths(TreeNode* root){
         vector<string> paths;
@@ -33,3 +33,25 @@ private:
 };
 
 // Iterative 
+class Solution2{
+public:
+    vector<string> binaryTreePaths(TreeNode* root){
+        if(!root) return {};
+        
+        vector<string> paths;
+        queue<pair<TreeNode*, string>> todo;
+        todo.push({root, to_string(root->val)});
+        while(!todo.empty()){
+            TreeNode* node = todo.front().first;
+            string path = todo.front().second;
+            todo.pop();
+            if(!node->left && !node->right){
+                paths.push_back(path);
+            }else{
+                if(node->left) todo.push({node->left, path + "->" + to_string(node->left->val)});
+                if(node->right) todo.push({node->right, path + "->" + to_string(node->right->val)});
+            }
+        }
+        return paths;
+    }
+}
