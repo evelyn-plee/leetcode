@@ -27,3 +27,50 @@ private:
         dfs(root->right, curDepth + 1, ans);
     }
 }
+
+
+class Morris_Traversal_Solution {
+public:
+    vector<int> largestValues(TreeNode* root) {
+        vector<int> res;
+        TreeNode* cur = root, *prev = NULL;
+        int deep = 0;
+        while (cur) {
+            if (cur->left == NULL) {
+                //
+                if (deep >= res.size())
+                    res.push_back(cur->val);
+                else
+                    res[deep] = max(res[deep], cur->val);
+                cur = cur->right;
+                deep++;
+            } else {
+                prev = cur->left;
+                int move = 1;
+                while (prev->right && prev->right != cur) {
+                    prev = prev->right;
+                    move++;
+                }
+                if (prev->right == NULL) {
+                    if (deep >= res.size())
+                        res.push_back(cur->val);
+                    prev->right = cur;
+                    cur = cur->left;
+                    deep++;
+                } else {
+                    // back to parent node, remove connection
+                    prev->right = NULL;
+                    deep -= move + 1;
+                    //
+                    if (deep >= res.size())
+                        res.push_back(cur->val);
+                    else
+                        res[deep] = max(res[deep], cur->val);
+                    cur = cur->right;
+                    deep++;
+                }
+            }
+        }
+        return res;
+    }
+};
