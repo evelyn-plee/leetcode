@@ -52,3 +52,29 @@ private:
         }
     }
 };
+
+
+class BFS_Solution {
+public:
+    int findCircleNum(vector<vector<int>>& M) {
+        if(M.empty()) return 0;
+        int n = M.size();
+        int count = 0;
+        vector<int> visited(n, 0);
+        queue<int> q;
+        for(int i = 0; i < n; i++){
+            if(!visited[i]){
+                q.push(i);
+                while(!q.empty()){
+                    int cur = q.front(); q.pop(); cout << i << endl;
+                    visited[cur] = 1;
+                    for(int j = 0; j < n; j++){
+                        if(M[cur][j] && !visited[j]) q.push(j);
+                    }   
+                }
+                count++;
+            }
+        }
+        return count;
+    }
+};
